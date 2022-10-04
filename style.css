@@ -1,16 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+:root {
+    --left-bg-color: rgba(88, 88, 244, 0.346);
+    --right-bg-color: rgba(75, 8, 8, 0.527);
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   height: 100vh;
   overflow: hidden;
   margin: 0;
+}
+
+/* set the container to relative for use with the split class */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #333
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+left: 0;
+background: url('./assets/alliance1.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.right {
+    right: 0;
+    background: url('./assets/horde1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.split.right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--right-bg-color);
 }
