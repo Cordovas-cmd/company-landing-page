@@ -7,6 +7,7 @@
     --right-btn-hover-color: rgba(72, 3, 3, 0.529);
     --hover-width: 75%;
     --other-width: 25%;
+    --speed: 1000ms;
     
 }
 
@@ -21,6 +22,8 @@ body {
   margin: 0;
 }
 
+
+/*  H1 styling ------------------------------ */
 h1 {
     font-size: 4rem;
     color: rgb(23, 15, 15);
@@ -46,6 +49,7 @@ h1 {
     /* transform:rotateY(3.142rad); */
 }
 
+/* BTN styling ------------------------------ */
 
 .btn {
     position: absolute;
@@ -81,6 +85,8 @@ h1 {
     background-color: var(--right-btn-hover-color);
     border-color: var(--right-btn-hover-color);
 }
+
+/* Container syling ----------------------------------------------- */
 /* set the container to relative for use with the split class */
 .container {
     position: relative;
@@ -89,6 +95,8 @@ h1 {
     background: #333
 }
 
+
+/* Split styling ----------------------------------------------------- */
 .split {
     position: absolute;
     width: 50%;
@@ -96,11 +104,9 @@ h1 {
     overflow: hidden;
 }
 
-/* .row {
-    height: 20%;
-} */
+
 .split.left {
-    z-index: 1;
+    /* z-index: 1; */
 left: 0;
 /* transform: scaleX(-1); */
 background: url('./assets/alliance1.jpg');
@@ -122,7 +128,7 @@ background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 50%;
+    /* left: 50%; */
     right: 0;
     background: url('./assets/horde2.jpg');
     background-repeat: no-repeat;
@@ -138,6 +144,12 @@ background-size: cover;
     background-color: var(--right-bg-color);
 }
 
+.split.right, .split.left, .split.right::before, .split.left::before {
+    transition: all var(--speed) ease-in-out;
+}
+
+
+/* Hover styling -------------------------------------------- */
 .hover-left .left{
 width: var(--hover-width);
 }
@@ -149,4 +161,18 @@ width: var(--hover-width);
 }
 .hover-right .left {
 width: var(--other-width);
+}
+
+/* Media queries */
+
+
+@media(max-width: 800px) {
+    h1 {
+        font-size: 2rem;
+        top:30%;
+    }
+    btn {
+        padding:1.2rem;
+        width: 12rem;
+    }
 }
